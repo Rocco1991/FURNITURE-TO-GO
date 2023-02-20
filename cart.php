@@ -1,4 +1,45 @@
-<!DOCTYPE html>
+  <?php
+
+
+  session_start();
+
+  //it means that there is at least one product
+  if(isset($_SESSION['cart'])){
+
+      $products_array_ids = array_column($_SESSION['cart'], "product_id"); // [id.. 55,88,90..]
+ 
+      //chech if product has already been added to the cart or not
+      if(!in_array($_POST['products_id'],$products_array_ids)){
+        //add product to cart
+        $products_id = $_POST['products_id'];
+
+        $products_array = array(
+                          'product_id'=>$products_id,
+                          'product_name'=>$_POST['product_name'],
+                          'product_price'=>$_POST['product_price'],
+                          'product_image'=>$_POST['product_image'],
+                          'product_special_offer'=>$_POST['product_special_offer'],
+                          'product_quantity'=>$_POST['product_quantity']
+        );
+
+          $_SESSION['cart']['product_id'] = $products_array;
+          // [4=>[],55=>[]]
+  }else{
+       
+    
+        echo "<script>alert('Product was already been added to cart')</script>";
+            
+  }
+  
+ }
+
+
+  
+  ?>
+
+
+ 
+ <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -67,176 +108,75 @@
 <br>
 <br>
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<!-- PRODUCTS SECTION -->
 
-<section class="products mt-5 my-5 py-5" style="margin-top: 100px !important; margin-bottom:100px !important;" id="product">
-    <h1 class="heading">LASTEST <span>PRODUCTS</span> </h1>
+<!-- CART SECTION -->
 
-    <div class="box-container">
-
-        <!-- PRODUCT 1 -->
-        <div class="box">
-            <span class="discount">15% OFF</span>
-            <div class="image">
-                <img src="assets/imgs/Lamp-White.jpg" alt="">
-                <div class="form">
-                    <form action="">
-                        <input type="submit" class="cart-btn" value="ADD TO CART">
-                    </form>
-                </div>
-            </div>
-            <div class="content">
-                <h3>WHITE LAMP</h3>
-                <div class="price">$102 <span>$120</span></div>
-            </div>
-        </div>
-
-        <!-- PRODUCT 2 -->
-        <div class="box">
-            <span class="discount">15% OFF</span>
-            <div class="image">
-                <img src="assets/imgs/Lamp-Gray.jpg" alt="">
-                <div class="form">
-                    <form action="">
-                        <input type="submit" class="cart-btn" value="ADD TO CART">
-                    </form>
-                </div>
-            </div>
-            <div class="content">
-                <h3>GRAY LAMP</h3>
-                <div class="price">$187 <span>$220</span></div>
-            </div>
-        </div>
-
-        <!-- PRODUCT 3 -->
-        <div class="box">
-            <span class="discount">35% OFF</span>
-            <div class="image">
-                <img src="assets/imgs/Lamp-Black.jpg" alt="">
-                <div class="form">
-                    <form action="">
-                        <input type="submit" class="cart-btn" value="ADD TO CART">
-                    </form>
-                </div>
-            </div>
-            <div class="content">
-                <h3>BLACK LAMP</h3>
-                <div class="price">$78 <span>$120</span></div>
-            </div>
-        </div>
-
-        <!-- PRODUCT 4 -->
-        <div class="box">
-            <span class="discount">15% OFF</span>
-            <div class="image">
-                <img src="assets/imgs/Table-White.jpg" alt="">
-                <div class="form">
-                    <form action="">
-                        <input type="submit" class="cart-btn" value="ADD TO CART">
-                    </form>
-                </div>
-            </div>
-            <div class="content">
-                <h3>WHITE TABLE</h3>
-                <div class="price">$102 <span>$120</span></div>
-            </div>
-        </div>
-
-        <!-- PRODUCT 5 -->
-        <div class="box">
-            <span class="discount">25% OFF</span>
-            <div class="image">
-                <img src="assets/imgs/Table-Gray.jpg" alt="">
-                <div class="form">
-                    <form action="">
-                        <input type="submit" class="cart-btn" value="ADD TO CART">
-                    </form>
-                </div>
-            </div>
-            <div class="content">
-                <h3>GRAY TABLE</h3>
-                <div class="price">$165 <span>$220</span></div>
-            </div>
-        </div>
-
-        <!-- PRODUCT 6 -->
-        <div class="box">
-            <span class="discount">5% OFF</span>
-            <div class="image">
-                <img src="assets/imgs/Table-Black.jpg" alt="">
-                <div class="form">
-                    <form action="">
-                        <input type="submit" class="cart-btn" value="ADD TO CART">
-                    </form>
-                </div>
-            </div>
-            <div class="content">
-                <h3>BLACK TABLE</h3>
-                <div class="price">$109 <span>$120</span></div>
-            </div>
-        </div>
-
-        <!-- PRODUCT 7 -->
-        <div class="box">
-            <span class="discount">15% OFF</span>
-            <div class="image">
-                <img src="assets/imgs/Sofa-White.jpg" alt="">
-                <div class="form">
-                    <form action="">
-                        <input type="submit" class="cart-btn" value="ADD TO CART">
-                    </form>
-                </div>
-            </div>
-            <div class="content">
-                <h3>WHITE SOFA</h3>
-                <div class="price">$102 <span>$120</span></div>
-            </div>
-        </div>
-
-        <!-- PRODUCT 8 -->
-        <div class="box">
-            <span class="discount">20% OFF</span>
-            <div class="image">
-                <img src="assets/imgs/Sofa-Gray.jpg" alt="">
-                <div class="form">
-                    <form action="">
-                        <input type="submit" class="cart-btn" value="ADD TO CART">
-                    </form>
-                </div>
-            </div>
-            <div class="content">
-                <h3>GRAY SOFA</h3>
-                <div class="price">$96 <span>$220</span></div>
-            </div>
-        </div>
-
-        <!-- PRODUCT 9 -->
-        <div class="box">
-            <span class="discount">10% OFF</span>
-            <div class="image">
-                <img src="assets/imgs/Sofa-Black.jpg" alt="">
-                <div class="form">
-                    <form action="">
-                        <input type="submit" class="cart-btn" value="ADD TO CART">
-                    </form>
-                </div>
-            </div>
-            <div class="content">
-                <h3>BLACK SOFA</h3>
-                <div class="price">$108 <span>$120</span></div>
-            </div>
-        </div>
-
+<section class="cart container mt-5 my-3 py-5">
+    <div class="container mt5">
+        <h2 class="font-weight-bold">YOUR CART</h2>
+        <hr>
     </div>
+    <table class="mt-5 pt-5">
+        <tr>
+            <th>PRODUCTS</th>
+            <th>QUANTITY</th>
+            <th>SUBTOTAL</th>
+        </tr>
+
+
+        <?php if(isset($_SESSION['cart'])){ ?> 
+
+        <?php foreach($_SESSION['cart'] as $key => $value){ ?>
+
+                <tr>
+                    <!-- 1 -->
+                    <td>
+                        <div class="product-info">
+                            <img src="<?php echo 'assets/imgs/'.$value['product_image']; ?>" alt="">
+                            <div>
+                                <p>BLACK LAMP</p>
+                                <small><span>$</span> <?php echo $value['product_price']; ?> </small>
+                                <br>
+                                <form>
+                                    <input type="submit" class="remove-btn" value="REMOVE">
+                                </form>
+                            </div>
+                        </div>
+                    </td>
+
+                    <td>
+                        <form>
+                            <input type="number" value="<?php echo $value['product_quantity']; ?>">
+                            <input type="submit" class="edit-btn" value="EDIT">
+                        </form>
+                    </td>
+
+                    <td>
+                        <span class="product-price">$<?php echo $value['product_price'];?></span>
+                    </td>
+                </tr>
+
+        <?php } ?> 
+    <?php } ?> 
+
+    </table>
+
+    <div class="cart-total">
+        <table>
+            <tr>
+                <td>TOTAL</td>
+                <td>$199</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="checkout-container">
+        <form>
+            <input type="submit" class="btn checkout-btn" value="CHECKOUT">
+        </form>
+    </div>
+
 </section>
-
-
 
 
 

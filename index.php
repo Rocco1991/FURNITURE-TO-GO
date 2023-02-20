@@ -67,24 +67,107 @@
 <br>
 <br>
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+
+
+<!-- HOME / ABOUT US  -->
+
+<section class="home" id="home">
+    <div class="content">
+        <h3>ABOUT US</h3>
+        <span>FURNITURE TO GO</span>
+        <br>
+        <p> &#127760; Croatia, EU &#128205; Split, 21000</p>
+        <p>&#9989; WE OFFER ITALIAN FURNITURE OF HIGH QUALIT,STYLISH AND ELEGANT FURNITURE PIECES MADE IN ITALIA,MILANO</p>
+        <p>&#9989; THE FURNITURE OFFERED IS OFTEN MADE FROM THE FINEST MATERIALS SUCH: SOLID WOOD, LEATHER AND MARBLE.</p>
+        <p></p>
+        <p></p>
+        <br>
+        <a href="products.html"><img src="" class="img-fluid w-auto h-auto m-5"><button>SHOP NOW!</button></a>
+    </div>
+</section>
+
+
+<!-- VIDEO + ABOUT FIRM -->
+
+<section class="about" id="about">
+    <h1 class="heading">
+        <span>LET WE OFFER YOU A BEST PRODUCTS IN OUR ASORTIMAN </span>
+    </h1>
+    <div class="main-row">
+        <div class="video-container">
+            <video src="assets/imgs/Furniture-Video.mp4" loop autoplay muted></video>
+            <h3>Best Products</h3>
+        </div>
+        <div class="content">
+            <h3>WHY CHOOSE US?</h3>
+            <p>&#9989; OUR COMPANY WON MANY INTERNATIONAL AWARDS &#127942; &#127941;</p>
+            <p>&#9989; SHIPPING IS FREE &#128140; </p>
+            <p>&#9989; YOU CAN BE CONFIDENT THAT YOU WILL RECIEVE <br> THE HELP AND SUPPORT YOU NEED &#128222; </p>
+            <a href="#"><img src="" class="main-btn"><button>LEARN MORE!</button></a>
+        </div>
+    </div>
+
+</section>
+
+
+<!-- ICONS SECTION -->
+
+<section class="icons-container" id="features">
+
+    <div class="icons">
+        <i class="fas fa-shopping-cart"></i>
+        <div class="info">
+            <h3>FREE DELIVERY</h3>
+            <span>on all orders</span>
+        </div>
+    </div>
+
+    <div class="icons">
+        <i class="fas fa-tags"></i>
+        <div class="info">
+            <h3>15 DAYS RETURN</h3>
+            <span>money back guarantee</span>
+        </div>
+    </div>
+
+    <div class="icons">
+        <i class="fas fa-gifts"></i>
+        <div class="info">
+            <h3>GIFTS</h3>
+            <span>gifts for loved ones</span>
+        </div>
+    </div>
+
+    <div class="icons">
+        <i class="fa-regular fa-credit-card"></i>
+        <div class="info">
+            <h3>SECURE PAYMENT</h3>
+            <span>protected by PayPal</span>
+        </div>
+    </div>
+</section>
+
+
+
+
 <!-- PRODUCTS SECTION -->
 
-<section class="products mt-5 my-5 py-5" style="margin-top: 100px !important; margin-bottom:100px !important;" id="product">
+<section class="products" id="product">
     <h1 class="heading">LASTEST <span>PRODUCTS</span> </h1>
 
     <div class="box-container">
 
+    
+    <?php include("get_products.php");  ?>
+
+    
+    <?php foreach($products as $product){ ?>
+
         <!-- PRODUCT 1 -->
         <div class="box">
-            <span class="discount">15% OFF</span>
+            <span class="discount"><?php echo $product['product_special_offer'];  ?>% OFF</span>
             <div class="image">
-                <img src="assets/imgs/Lamp-White.jpg" alt="">
+                <img src="<?php echo "assets/imgs/".$product['product_image']; ?>" alt="">
                 <div class="form">
                     <form action="">
                         <input type="submit" class="cart-btn" value="ADD TO CART">
@@ -92,149 +175,111 @@
                 </div>
             </div>
             <div class="content">
-                <h3>WHITE LAMP</h3>
-                <div class="price">$102 <span>$120</span></div>
+                <h3><?php echo $product['product_name']; ?></h3>
+                <div class="price">$<?php echo $product['product_price']; ?> <span>$120</span></div>
             </div>
         </div>
 
-        <!-- PRODUCT 2 -->
+        <?php } ?>
+
+        
+
+    </div>
+</section>
+
+<!-- REVIEWS SECTION -->
+<section class="review" id="review">
+    <h1 class="heading">COSTUMERS <span>REVIEWS</span></h1>
+    <div class="box-container">
+
+        <!-- CUSTOMER 1 -->
         <div class="box">
-            <span class="discount">15% OFF</span>
-            <div class="image">
-                <img src="assets/imgs/Lamp-Gray.jpg" alt="">
-                <div class="form">
-                    <form action="">
-                        <input type="submit" class="cart-btn" value="ADD TO CART">
-                    </form>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <p>AWSOME PRODUCTS, I LIKED THOSE PRODUCTS SO MUCH.</p>
+            <div class="user">
+                <img src="assets/imgs/customer-1.jpg" alt="">
+                <div class="user-info">
+                    <h3>ANNA </h3>
+                    <span>Happy customer</span>
                 </div>
             </div>
-            <div class="content">
-                <h3>GRAY LAMP</h3>
-                <div class="price">$187 <span>$220</span></div>
-            </div>
+            <span class="fas fa-quote-right"></span>
         </div>
 
-        <!-- PRODUCT 3 -->
+
+        <!-- CUSTOMER 2 -->
         <div class="box">
-            <span class="discount">35% OFF</span>
-            <div class="image">
-                <img src="assets/imgs/Lamp-Black.jpg" alt="">
-                <div class="form">
-                    <form action="">
-                        <input type="submit" class="cart-btn" value="ADD TO CART">
-                    </form>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <p>AWSOME PRODUCTS, I LIKED THOSE PRODUCTS SO MUCH.</p>
+            <div class="user">
+                <img src="assets/imgs/customer-2.jpg" alt="">
+                <div class="user-info">
+                    <h3>GEORGE</h3>
+                    <span>Happy customer</span>
                 </div>
             </div>
-            <div class="content">
-                <h3>BLACK LAMP</h3>
-                <div class="price">$78 <span>$120</span></div>
-            </div>
+            <span class="fas fa-quote-right"></span>
         </div>
 
-        <!-- PRODUCT 4 -->
-        <div class="box">
-            <span class="discount">15% OFF</span>
-            <div class="image">
-                <img src="assets/imgs/Table-White.jpg" alt="">
-                <div class="form">
-                    <form action="">
-                        <input type="submit" class="cart-btn" value="ADD TO CART">
-                    </form>
-                </div>
-            </div>
-            <div class="content">
-                <h3>WHITE TABLE</h3>
-                <div class="price">$102 <span>$120</span></div>
-            </div>
-        </div>
 
-        <!-- PRODUCT 5 -->
+        <!-- CUSTOMER 3 -->
         <div class="box">
-            <span class="discount">25% OFF</span>
-            <div class="image">
-                <img src="assets/imgs/Table-Gray.jpg" alt="">
-                <div class="form">
-                    <form action="">
-                        <input type="submit" class="cart-btn" value="ADD TO CART">
-                    </form>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <p>AWSOME PRODUCTS, I LIKED THOSE PRODUCTS SO MUCH.</p>
+            <div class="user">
+                <img src="assets/imgs/customer-3.jpg" alt="">
+                <div class="user-info">
+                    <h3>LUCA</h3>
+                    <span>Happy customer</span>
                 </div>
             </div>
-            <div class="content">
-                <h3>GRAY TABLE</h3>
-                <div class="price">$165 <span>$220</span></div>
-            </div>
-        </div>
-
-        <!-- PRODUCT 6 -->
-        <div class="box">
-            <span class="discount">5% OFF</span>
-            <div class="image">
-                <img src="assets/imgs/Table-Black.jpg" alt="">
-                <div class="form">
-                    <form action="">
-                        <input type="submit" class="cart-btn" value="ADD TO CART">
-                    </form>
-                </div>
-            </div>
-            <div class="content">
-                <h3>BLACK TABLE</h3>
-                <div class="price">$109 <span>$120</span></div>
-            </div>
-        </div>
-
-        <!-- PRODUCT 7 -->
-        <div class="box">
-            <span class="discount">15% OFF</span>
-            <div class="image">
-                <img src="assets/imgs/Sofa-White.jpg" alt="">
-                <div class="form">
-                    <form action="">
-                        <input type="submit" class="cart-btn" value="ADD TO CART">
-                    </form>
-                </div>
-            </div>
-            <div class="content">
-                <h3>WHITE SOFA</h3>
-                <div class="price">$102 <span>$120</span></div>
-            </div>
-        </div>
-
-        <!-- PRODUCT 8 -->
-        <div class="box">
-            <span class="discount">20% OFF</span>
-            <div class="image">
-                <img src="assets/imgs/Sofa-Gray.jpg" alt="">
-                <div class="form">
-                    <form action="">
-                        <input type="submit" class="cart-btn" value="ADD TO CART">
-                    </form>
-                </div>
-            </div>
-            <div class="content">
-                <h3>GRAY SOFA</h3>
-                <div class="price">$96 <span>$220</span></div>
-            </div>
-        </div>
-
-        <!-- PRODUCT 9 -->
-        <div class="box">
-            <span class="discount">10% OFF</span>
-            <div class="image">
-                <img src="assets/imgs/Sofa-Black.jpg" alt="">
-                <div class="form">
-                    <form action="">
-                        <input type="submit" class="cart-btn" value="ADD TO CART">
-                    </form>
-                </div>
-            </div>
-            <div class="content">
-                <h3>BLACK SOFA</h3>
-                <div class="price">$108 <span>$120</span></div>
-            </div>
+            <span class="fas fa-quote-right"></span>
         </div>
 
     </div>
 </section>
+
+
+
+
+
+<!-- CONTAT US SECTION -->
+
+<section class="contact" id="contact">
+    <h1 class="heading"><span>CONTACT US</span></h1>
+    <div class="main-row">
+        <div class="contact-info">
+            <h3>CONTACT NUMBER: +123 456 789</h3>
+            <p>CUSTOMER SERVICE: <span>customer@gmail.com</span></p>
+            <p>RETURN & REFUNDS <span>returns@gmail.com</span></p>
+            <p>INQUERIES <span>inqueries@gmail.com</span></p>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
 
 
 
